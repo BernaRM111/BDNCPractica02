@@ -41,7 +41,7 @@ public class ControllerPersona {
             return null;
     }
     
-    @PutMapping("/{id}")
+    @PutMapping("/persona/{id}")
     public ResponseEntity<?> put(@PathVariable String id, @RequestBody Persona personap) {
          Optional<Persona> optionalPersona = repositoryPersona.findById(id);
         if (optionalPersona.isPresent()) {
@@ -56,13 +56,13 @@ public class ControllerPersona {
         }
     }
     
-    @PostMapping
+    @PostMapping("/persona/")
     public ResponseEntity<?> post(@RequestBody Persona persona) {
         repositoryPersona.save(persona);
         return ResponseEntity.ok(persona);
     }
     
-    @DeleteMapping("{id}")
+    @DeleteMapping("/persona/{id}")
     public ResponseEntity<?> delete(@PathVariable String id) {
         Optional<Persona> elimPersona = repositoryPersona.findById(id);
         if (elimPersona.isPresent()) {
